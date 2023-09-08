@@ -1,4 +1,4 @@
-# fluttercode
+# flutter
 
 A new Flutter project.
 
