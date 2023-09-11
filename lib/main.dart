@@ -45,11 +45,20 @@ class _MyTabScreenState extends State<MyTabScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SocialMedia",
-            style: TextStyle(
-                fontFamily: "SpaceMono",
-                fontSize: 30.0,
-                color: Colors.indigoAccent)),
+        title:  TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SecondScreen()),
+              );
+            },
+            child: const Text(
+              "SocialMedia",
+              style: TextStyle(
+                  fontFamily: "SpaceMono",
+                  fontSize: 30.0,
+                  color: Colors.indigoAccent),
+            )),
         bottom: TabBar(
           controller: _tabController,
           tabs: const [
@@ -89,6 +98,38 @@ class _MyTabScreenState extends State<MyTabScreen>
           },
         );
       },
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Second Screen'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'This is the Second Screen',
+              style: TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Quay lại FirstScreen khi nút được nhấn
+                Navigator.pop(context);
+              },
+              child: const Text('Back to First Screen'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
