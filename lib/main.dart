@@ -28,6 +28,26 @@ class MyTabScreen extends StatefulWidget {
 class _MyTabScreenState extends State<MyTabScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  int? _size;
+  final _icons = const [ Icon(Icons.add_a_photo),Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.add_card_sharp)];
 
   @override
   void initState() {
@@ -45,7 +65,7 @@ class _MyTabScreenState extends State<MyTabScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  TextButton(
+        title: TextButton(
             onPressed: () {
               Navigator.push(
                 context,
@@ -53,7 +73,7 @@ class _MyTabScreenState extends State<MyTabScreen>
               );
             },
             child: const Text(
-              "SocialMedia",
+              "NEWS",
               style: TextStyle(
                   fontFamily: "SpaceMono",
                   fontSize: 30.0,
@@ -67,6 +87,7 @@ class _MyTabScreenState extends State<MyTabScreen>
             Tab(text: 'Profile', icon: Icon(Icons.person_2_rounded)),
           ],
           labelColor: Colors.indigoAccent,
+          unselectedLabelColor: Colors.grey,
         ),
         backgroundColor: Colors.white,
       ),
@@ -82,16 +103,17 @@ class _MyTabScreenState extends State<MyTabScreen>
   }
 
   ListView _buildListView() {
+    _size = 20;
     return ListView.builder(
-      itemCount: 10,
+      itemCount: _size,
       itemBuilder: (_, index) {
         return ListTile(
           title: Text('item #$index'),
-          leading: const Icon(Icons.thumb_up),
-          iconColor: Colors.blueAccent,
+          leading: _icons[index],
+          iconColor: Colors.red,
           onTap: () => {
             Fluttertoast.showToast(
-                msg: 'liked $index',
+                msg: 'liked ${_icons[index]}',
                 toastLength: Toast.LENGTH_SHORT,
                 fontSize: 18,
                 textColor: Colors.redAccent)
@@ -122,7 +144,6 @@ class SecondScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Quay lại FirstScreen khi nút được nhấn
                 Navigator.pop(context);
               },
               child: const Text('Back to First Screen'),
