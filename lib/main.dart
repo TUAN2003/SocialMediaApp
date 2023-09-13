@@ -31,17 +31,17 @@ class _MyTabScreenState extends State<MyTabScreen>
   int? _size;
   final _icons = const [ Icon(Icons.add_a_photo),Icon(Icons.add_card_sharp)
   ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.ac_unit)
+  ,Icon(Icons.access_alarm)
+  ,Icon(Icons.accessibility)
+  ,Icon(Icons.account_balance)
+  ,Icon(Icons.account_balance_wallet_rounded)
+  ,Icon(Icons.adb)
+  ,Icon(Icons.account_tree)
+  ,Icon(Icons.add_alert)
+  ,Icon(Icons.add_business)
+  ,Icon(Icons.add_call)
+  ,Icon(Icons.add_chart_outlined)
   ,Icon(Icons.add_card_sharp)
   ,Icon(Icons.add_card_sharp)
   ,Icon(Icons.add_card_sharp)
@@ -73,7 +73,7 @@ class _MyTabScreenState extends State<MyTabScreen>
               );
             },
             child: const Text(
-              "NEWS",
+              'FACEBOOK',
               style: TextStyle(
                   fontFamily: "SpaceMono",
                   fontSize: 30.0,
@@ -82,10 +82,11 @@ class _MyTabScreenState extends State<MyTabScreen>
         bottom: TabBar(
           controller: _tabController,
           tabs: const [
-            Tab(text: 'Home', icon: Icon(Icons.mail)),
+            Tab(text: 'Home', icon: Icon(Icons.home)),
             Tab(text: 'Contact', icon: Icon(Icons.perm_contact_cal_rounded)),
             Tab(text: 'Profile', icon: Icon(Icons.person_2_rounded)),
           ],
+          labelStyle: const TextStyle(fontFamily: 'SpaceMono',fontSize: 16),
           labelColor: Colors.indigoAccent,
           unselectedLabelColor: Colors.grey,
         ),
@@ -94,7 +95,7 @@ class _MyTabScreenState extends State<MyTabScreen>
       body: TabBarView(
         controller: _tabController,
         children: [
-          Center(child: _buildListView()),
+          _buildListView(),
           const Center(child: Text('Content of Contact')),
           const Center(child: Text('Content of Profile')),
         ],
@@ -108,9 +109,10 @@ class _MyTabScreenState extends State<MyTabScreen>
       itemCount: _size,
       itemBuilder: (_, index) {
         return ListTile(
-          title: Text('item #$index'),
+          title: Text('#${_icons[index].icon}'
+              ,style: const TextStyle(fontFamily: 'SpaceMono')),
           leading: _icons[index],
-          iconColor: Colors.red,
+          iconColor: Colors.deepOrangeAccent,
           onTap: () => {
             Fluttertoast.showToast(
                 msg: 'liked ${_icons[index]}',
