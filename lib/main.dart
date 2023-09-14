@@ -29,7 +29,7 @@ class _MyTabScreenState extends State<MyTabScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   int? _size;
-  final _icons = const [ Icon(Icons.add_a_photo),Icon(Icons.add_card_sharp)
+  final _icons = const [ Icon(Icons.add_a_photo),Icon(Icons.access_time_filled_sharp)
   ,Icon(Icons.add_card_sharp)
   ,Icon(Icons.ac_unit)
   ,Icon(Icons.access_alarm)
@@ -42,7 +42,7 @@ class _MyTabScreenState extends State<MyTabScreen>
   ,Icon(Icons.add_business)
   ,Icon(Icons.add_call)
   ,Icon(Icons.add_chart_outlined)
-  ,Icon(Icons.add_card_sharp)
+  ,Icon(Icons.accessible_forward_sharp)
   ,Icon(Icons.add_card_sharp)
   ,Icon(Icons.add_card_sharp)
   ,Icon(Icons.add_card_sharp)
