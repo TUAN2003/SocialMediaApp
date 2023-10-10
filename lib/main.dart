@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -27,25 +28,28 @@ class _MyTabScreenState extends State<MyTabScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   int? _size;
-  final _icons = const [ Icon(Icons.add_a_photo),Icon(Icons.access_time_filled_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.ac_unit)
-  ,Icon(Icons.access_alarm)
-  ,Icon(Icons.accessibility)
-  ,Icon(Icons.account_balance)
-  ,Icon(Icons.account_balance_wallet_rounded)
-  ,Icon(Icons.adb)
-  ,Icon(Icons.account_tree)
-  ,Icon(Icons.add_alert)
-  ,Icon(Icons.add_business)
-  ,Icon(Icons.add_call)
-  ,Icon(Icons.add_chart_outlined)
-  ,Icon(Icons.accessible_forward_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)
-  ,Icon(Icons.add_card_sharp)];
+  final _icons = const [
+    Icon(Icons.add_a_photo),
+    Icon(Icons.access_time_filled_sharp),
+    Icon(Icons.add_card_sharp),
+    Icon(Icons.ac_unit),
+    Icon(Icons.access_alarm),
+    Icon(Icons.accessibility),
+    Icon(Icons.account_balance),
+    Icon(Icons.account_balance_wallet_rounded),
+    Icon(Icons.adb),
+    Icon(Icons.account_tree),
+    Icon(Icons.add_alert),
+    Icon(Icons.add_business),
+    Icon(Icons.add_call),
+    Icon(Icons.add_chart_outlined),
+    Icon(Icons.accessible_forward_sharp),
+    Icon(Icons.add_card_sharp),
+    Icon(Icons.add_card_sharp),
+    Icon(Icons.add_card_sharp),
+    Icon(Icons.add_card_sharp),
+    Icon(Icons.add_card_sharp)
+  ];
 
   @override
   void initState() {
@@ -84,7 +88,7 @@ class _MyTabScreenState extends State<MyTabScreen>
             Tab(text: 'Contact', icon: Icon(Icons.perm_contact_cal_rounded)),
             Tab(text: 'Profile', icon: Icon(Icons.person_2_rounded)),
           ],
-          labelStyle: const TextStyle(fontFamily: 'SpaceMono',fontSize: 16),
+          labelStyle: const TextStyle(fontFamily: 'SpaceMono', fontSize: 16),
           labelColor: Colors.indigoAccent,
           unselectedLabelColor: Colors.grey,
         ),
@@ -107,8 +111,8 @@ class _MyTabScreenState extends State<MyTabScreen>
       itemCount: _size,
       itemBuilder: (_, index) {
         return ListTile(
-          title: Text('#${_icons[index].icon}'
-              ,style: const TextStyle(fontFamily: 'SpaceMono')),
+          title: Text('#${_icons[index].icon}',
+              style: const TextStyle(fontFamily: 'SpaceMono')),
           leading: _icons[index],
           iconColor: Colors.deepOrangeAccent,
           onTap: () => {
@@ -116,7 +120,7 @@ class _MyTabScreenState extends State<MyTabScreen>
                 msg: 'liked ${_icons[index]}',
                 toastLength: Toast.LENGTH_SHORT,
                 fontSize: 18,
-                textColor: Colors.redAccent)
+                textColor: Colors.redAccent),
           },
         );
       },
