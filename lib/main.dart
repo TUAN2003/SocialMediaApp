@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: MyTabScreen(),
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false
     );
   }
 }
@@ -27,7 +26,7 @@ class MyTabScreen extends StatefulWidget {
 class _MyTabScreenState extends State<MyTabScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  int? _size;
+  late int _size;
   final _icons = const [
     Icon(Icons.add_a_photo),
     Icon(Icons.access_time_filled_sharp),
@@ -44,10 +43,6 @@ class _MyTabScreenState extends State<MyTabScreen>
     Icon(Icons.add_call),
     Icon(Icons.add_chart_outlined),
     Icon(Icons.accessible_forward_sharp),
-    Icon(Icons.add_card_sharp),
-    Icon(Icons.add_card_sharp),
-    Icon(Icons.add_card_sharp),
-    Icon(Icons.add_card_sharp),
     Icon(Icons.add_card_sharp)
   ];
 
@@ -71,7 +66,7 @@ class _MyTabScreenState extends State<MyTabScreen>
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const SecondScreen()),
+                MaterialPageRoute(builder: (_) => const SecondScreen()),
               );
             },
             child: const Text(
@@ -106,7 +101,7 @@ class _MyTabScreenState extends State<MyTabScreen>
   }
 
   ListView _buildListView() {
-    _size = 20;
+    _size = 16;
     return ListView.builder(
       itemCount: _size,
       itemBuilder: (_, index) {
@@ -117,6 +112,7 @@ class _MyTabScreenState extends State<MyTabScreen>
           iconColor: Colors.deepOrangeAccent,
           onTap: () => {
             Fluttertoast.showToast(
+                // ignore: prefer_interpolation_to_compose_strings
                 msg: 'liked ${_icons[index]}',
                 toastLength: Toast.LENGTH_SHORT,
                 fontSize: 18,
